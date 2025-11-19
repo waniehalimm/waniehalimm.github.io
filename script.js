@@ -1,13 +1,12 @@
-const sections = document.querySelectorAll('.section');
-
+// Simple fade-in on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
-      entry.target.classList.add('visible');
+      entry.target.classList.add('animate');
     }
   });
-}, { threshold: 0.2 });
+}, { threshold: 0.1 });
 
-sections.forEach(section => {
-  observer.observe(section);
+document.querySelectorAll('section, .project-card').forEach(el => {
+  observer.observe(el);
 });
